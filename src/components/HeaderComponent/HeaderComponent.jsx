@@ -1,19 +1,20 @@
 import React from 'react'
 import {Badge, Col } from 'antd'
-import { WrapperHeader, WrapperHeaderAccount, WrapperHeaderSmallHeader, WrapperTextHeader } from './style'
+import { WapperHeader1, WrapperHeader, WrapperHeaderAccount, WrapperHeaderSmallHeader, WrapperTextHeader } from './style'
 import { UserOutlined, CaretDownOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import ButtonInputSearch from '../ButtonInputSearch/ButtonInputSearch'
-
+import {Image} from 'antd'
+import logoFile from '../../assets/images/MyGearLogo.png'
 const HeaderComponent = () => {
     return (
-        <div>
+        <div style={{width: '100%', background:'linear-gradient(to left, #ccc, #000)', display: 'flex', justifyContent: 'center'}}>
             <WrapperHeader>
-            <Col span={6}>
+            <Col span={5}>
                 <WrapperTextHeader>
-                MyGear
+                    <Image src={logoFile} preview={false}/>
                 </WrapperTextHeader>
             </Col>
-            <Col span={12}>
+            <Col span={13}>
                 <ButtonInputSearch
                     size='large'
                     textButton='Tìm kiếm'
@@ -22,7 +23,7 @@ const HeaderComponent = () => {
                     // onSearch={onSearch}
                 />
             </Col>
-            <Col span={6} style = {{display:'flex', gap:'20px', alignItems:'center'}}>
+            <Col span={6} style = {{display:'flex', gap:'54px', alignItems:'center'}}>
                 <WrapperHeaderAccount>
                     <UserOutlined style ={{fontSize: '30px'}}/>
                     <div>
