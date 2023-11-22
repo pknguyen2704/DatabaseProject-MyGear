@@ -1,24 +1,22 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const db = require('./models');
+const port = process.env.PORT || 3001
+
 const routes = require('./routes');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 const app = express()
-const port = process.env.PORT || 3001
+const db = require('./models/index.js');
 
-dotenv.config()
+dotenv.config();
+app.use(bodyParser.json());
 
-app.use(bodyParser.json())
-app.use(cors())
-app.use(bodyParser.urlencoded({
-    extended: true,
-}));
+routes(app);
 
 db.sequelize.sync().then(() => {
-    console.log('thanh cong')
-    // app.listen(port, () => {
-    //     console.log(`Example app listening at http://localhost:${port}`)
-    // });
+    console.log("thanh cong");
+})
+app.listen(3001, (req, res) => {
+    console.log("Server listening on " + 3001);
 })
